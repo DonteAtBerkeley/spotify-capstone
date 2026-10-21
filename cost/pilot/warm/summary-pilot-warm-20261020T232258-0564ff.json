@@ -1,0 +1,66 @@
+{
+  "preflight": {
+    "run_id": "pilot-warm-20261020T232258-0564ff",
+    "input": "data/cost_100.csv",
+    "input_sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+    "rows_in_file": 100,
+    "rows_in_state": 100,
+    "pending_nonempty": 100,
+    "distinct_texts_to_send": 0,
+    "mode": "PAID",
+    "model": "gpt-6-luna",
+    "effort": "none",
+    "label_config": "gpt-6-luna:effort=none+enrich-p1+s1",
+    "batch_size": 50,
+    "workers": 1,
+    "est_worst_case_enrich_usd": 0.0,
+    "budget_cap_usd": 0.5,
+    "stages": [
+      "enrich",
+      "verify",
+      "group",
+      "rank",
+      "memo"
+    ]
+  },
+  "ingest_s": 0.002,
+  "stage_s": {
+    "enrich": 0.003,
+    "verify": 0.001,
+    "group": 0.001,
+    "rank": 0.001,
+    "memo": 0.001
+  },
+  "enrich": {
+    "calls": 0,
+    "failed_calls": 0,
+    "completed": 100,
+    "cache_hits": 100,
+    "quarantined": 0,
+    "transport_unresolved": 0,
+    "batches_done": 0,
+    "wall_s": 0.0,
+    "stopped": "",
+    "phase": "initial"
+  },
+  "pending_after_enrich": 0,
+  "verify": {
+    "seed": "verify-v1",
+    "sample_size": 10,
+    "disagreements": 1,
+    "agreement_by_field": {
+      "topic": 9,
+      "intent": 10,
+      "severity": 9
+    },
+    "artifact_cache_hit": true
+  },
+  "wall_s": 0.023,
+  "ledger": {
+    "cap": 0.5,
+    "spent": 0.0,
+    "reserved": 0.0
+  },
+  "run_spent_usd_from_calls": 0,
+  "run_calls_by_role": {}
+}

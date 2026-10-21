@@ -1,0 +1,23 @@
+{
+  "_note": "Editable estimate inputs. Measured pilot numbers are NOT here; they come from pilot_calls.jsonl and pilot_runs.json.",
+  "full_rows": 660622,
+  "nonempty_rows": 660609,
+  "empty_text_quarantines": 13,
+  "distinct_nonempty_texts": 484189,
+  "use_exact_text_reuse": true,
+  "budget_usd": 15.0,
+  "workers": 16,
+  "max_output_tokens_per_review": 80,
+  "max_fallback_fraction": 0.0,
+  "fallback_model": null,
+  "verify_sample_size": 50,
+  "conservative_enrich_multiplier": 1.25,
+  "_conservative_note": "extra retries/re-sent batches beyond the measured pilot mix (assumption, not measured)",
+  "rate_limit_rpm": 5000,
+  "rate_limit_tpm": 2000000,
+  "_rate_limit_source": "x-ratelimit-limit-requests / x-ratelimit-limit-tokens response headers recorded in pilot_calls.jsonl",
+  "full_ingest_seconds": 28.87,
+  "_full_ingest_note": "measured 2026-10-20: real time of a no-API --dry-run (ingest + preflight) on spotify_reviews_18months.csv",
+  "local_compute_usd": null,
+  "_local_compute_note": "laptop time/electricity not measured -> unknown, not zero"
+}

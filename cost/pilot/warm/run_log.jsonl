@@ -1,0 +1,10 @@
+{"t": 1792563778.632386, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[preflight] {\"run_id\": \"pilot-warm-20261020T232258-0564ff\", \"input\": \"data/cost_100.csv\", \"input_sha256\": \"c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e\", \"rows_in_file\": 100, \"rows_in_state\": 100, \"pending_nonempty\": 100, \"distinct_texts_to_send\": 0, \"mode\": \"PAID\", \"model\": \"gpt-6-luna\", \"effort\": \"none\", \"label_config\": \"gpt-6-luna:effort=none+enrich-p1+s1\", \"batch_size\": 50, \"workers\": 1, \"est_worst_case_enrich_usd\": 0.0, \"budget_cap_usd\": 0.5, \"stages\": [\"enrich\", \"verify\", \"group\", \"rank\", \"memo\"]}"}
+{"t": 1792563778.639889, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[enrich] phase=initial distinct_texts_to_send=0 batches=0 cache_hits=100 workers=1"}
+{"t": 1792563778.643091, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[verify] artifact cache hit: no model call"}
+{"t": 1792563778.643549, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[verify] sample=10 disagreements=1"}
+{"t": 1792563778.644886, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[group] artifact cache hit: no model call"}
+{"t": 1792563778.645303, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[group] issues=7 memberships=51"}
+{"t": 1792563778.647958, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[rank] issues=7"}
+{"t": 1792563778.64944, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[memo] artifact cache hit: no model call"}
+{"t": 1792563778.650054, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[memo] claims=3 artifact_cache_hit=True"}
+{"t": 1792563778.6526809, "run_id": "pilot-warm-20261020T232258-0564ff", "msg": "[run] done wall=0.02s spent=$0.000000 calls={}"}

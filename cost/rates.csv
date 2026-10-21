@@ -1,0 +1,6 @@
+provider,model,tier,item,unit,price_usd_per_million_units,source_url,checked_date,notes
+openai,gpt-6-luna,standard,input_tokens_uncached,token,0.10,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-20,billed = input_tokens - cached_tokens
+openai,gpt-6-luna,standard,input_tokens_cached,token,0.01,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-20,pilot measured 0 cached tokens
+openai,gpt-6-luna,standard,output_tokens,token,0.50,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-20,reasoning tokens are included in output_tokens (pilot measured 0 at effort=none)
+openai,gpt-6-luna,batch,input_tokens_uncached,token,0.05,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-20,scenario only - Batch API NOT used
+openai,gpt-6-luna,batch,output_tokens,token,0.25,https://developers.openai.com/api/docs/models/gpt-6-luna,2026-10-20,scenario only - Batch API NOT used

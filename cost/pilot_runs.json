@@ -1,0 +1,62 @@
+{
+  "cold": {
+    "run_id": "pilot-cold-20261020T232057-fd668c",
+    "wall_s": 42.572,
+    "stage_s": {
+      "enrich": 31.216,
+      "verify": 4.352,
+      "group": 2.602,
+      "rank": 0.001,
+      "memo": 4.385
+    },
+    "rows": 100,
+    "completed": 100,
+    "quarantined": 0,
+    "unique_texts": 100,
+    "cache_hits": 0,
+    "distinct_sent": 100,
+    "settings": {
+      "model": "gpt-6-luna",
+      "effort": "none",
+      "label_config": "gpt-6-luna:effort=none+enrich-p1+s1",
+      "batch_size": 50,
+      "workers": 1,
+      "budget_cap_usd": 0.5
+    },
+    "spent_ledger_usd": 0.0031873,
+    "summary_file": "cold/summary-pilot-cold-20261020T232057-fd668c.json"
+  },
+  "warm": {
+    "run_id": "pilot-warm-20261020T232258-0564ff",
+    "wall_s": 0.023,
+    "stage_s": {
+      "enrich": 0.003,
+      "verify": 0.001,
+      "group": 0.001,
+      "rank": 0.001,
+      "memo": 0.001
+    },
+    "rows": 100,
+    "completed": 100,
+    "quarantined": 0,
+    "unique_texts": 100,
+    "cache_hits": 100,
+    "distinct_sent": 0,
+    "settings": {
+      "model": "gpt-6-luna",
+      "effort": "none",
+      "label_config": "gpt-6-luna:effort=none+enrich-p1+s1",
+      "batch_size": 50,
+      "workers": 1,
+      "budget_cap_usd": 0.5
+    },
+    "spent_ledger_usd": 0.0,
+    "summary_file": "warm/summary-pilot-warm-20261020T232258-0564ff.json"
+  },
+  "inputs": {
+    "input": "data/cost_100.csv",
+    "sha256": "c884ac3b9be5066995d5063f96ad9af6e5e082975788c1684c4f6b6ea661dd0e",
+    "sha_ok": true,
+    "ids_ok": true
+  }
+}

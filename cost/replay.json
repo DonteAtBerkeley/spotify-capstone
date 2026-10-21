@@ -1,0 +1,128 @@
+{
+  "cold": {
+    "run_id": "pilot-cold-20261020T232057-fd668c",
+    "wall_s": 42.572,
+    "stage_s": {
+      "enrich": 31.216,
+      "verify": 4.352,
+      "group": 2.602,
+      "rank": 0.001,
+      "memo": 4.385
+    },
+    "by_role": {
+      "enrich": {
+        "requests": 3,
+        "failed": 0,
+        "input_tokens": 5086,
+        "output_tokens": 4112,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0025646,
+        "latency_s": 31.201142042002175,
+        "reviews_sent": 101
+      },
+      "verify": {
+        "requests": 1,
+        "failed": 0,
+        "input_tokens": 883,
+        "output_tokens": 393,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0002848,
+        "latency_s": 4.348692415980622,
+        "reviews_sent": 10
+      },
+      "group": {
+        "requests": 1,
+        "failed": 0,
+        "input_tokens": 358,
+        "output_tokens": 119,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.53e-05,
+        "latency_s": 2.5980420419946313,
+        "reviews_sent": 0
+      },
+      "memo": {
+        "requests": 1,
+        "failed": 0,
+        "input_tokens": 1106,
+        "output_tokens": 264,
+        "cached_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0002426,
+        "latency_s": 4.380774041987024,
+        "reviews_sent": 0
+      }
+    },
+    "api_cost_usd": 0.0031873,
+    "unknown_charge_calls": 0,
+    "completed": 100,
+    "quarantined": 0,
+    "rows": 100,
+    "unique_texts": 100,
+    "cache_hits": 0,
+    "distinct_sent": 100,
+    "settings": {
+      "model": "gpt-6-luna",
+      "effort": "none",
+      "label_config": "gpt-6-luna:effort=none+enrich-p1+s1",
+      "batch_size": 50,
+      "workers": 1,
+      "budget_cap_usd": 0.5
+    }
+  },
+  "warm": {
+    "run_id": "pilot-warm-20261020T232258-0564ff",
+    "wall_s": 0.023,
+    "stage_s": {
+      "enrich": 0.003,
+      "verify": 0.001,
+      "group": 0.001,
+      "rank": 0.001,
+      "memo": 0.001
+    },
+    "by_role": {},
+    "api_cost_usd": 0,
+    "unknown_charge_calls": 0,
+    "completed": 100,
+    "quarantined": 0,
+    "rows": 100,
+    "unique_texts": 100,
+    "cache_hits": 100,
+    "distinct_sent": 0,
+    "settings": {
+      "model": "gpt-6-luna",
+      "effort": "none",
+      "label_config": "gpt-6-luna:effort=none+enrich-p1+s1",
+      "batch_size": 50,
+      "workers": 1,
+      "budget_cap_usd": 0.5
+    }
+  },
+  "estimate": {
+    "texts_to_enrich": 484189,
+    "per_text_enrich_usd": 2.5646e-05,
+    "base_usd": 12.419272994,
+    "conservative_usd": 15.5254126675,
+    "no_reuse_usd": 16.943740314000003,
+    "batch_scenario_enrich_usd": 6.208755546999999,
+    "base_enrich_usd": 12.417511094,
+    "per_verify_review_usd": 2.848e-05,
+    "fixed_group_memo_usd": 0.0003379,
+    "per_worker_reviews_per_min": 192.2091235263967,
+    "req_per_min_per_worker": 5.766273705791901,
+    "tokens_per_request_for_tpm": 5759.333333333333,
+    "max_workers_by_tpm": 60,
+    "max_workers_by_rpm": 867,
+    "workers": 16,
+    "effective_workers": 16,
+    "modeled_reviews_per_min": 3075.345976422347,
+    "enrich_hours": 2.624035386111111,
+    "ingest_s": 28.87,
+    "downstream_s": 11.34,
+    "total_hours": 2.635204830555556,
+    "over_budget_base": false,
+    "over_budget_conservative": true
+  }
+}

@@ -1,0 +1,4 @@
+claim_id,issue_id,metric,value
+C1,ISS-billing,priority_score,34
+C2,ISS-usability,priority_score,31
+C3,ISS-playback,mean_severity,3.600000

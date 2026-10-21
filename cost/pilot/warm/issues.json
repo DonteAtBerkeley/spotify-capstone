@@ -1,0 +1,58 @@
+{
+  "method": "one issue per complaint/cancellation record, issue_id = ISS-<topic>; names from model",
+  "names": {
+    "ISS-access": "Account access and password problems",
+    "ISS-billing": "Premium restrictions and feature limits",
+    "ISS-catalog": "Missing songs, lyrics, and recommendations",
+    "ISS-downloads": "Offline downloads not working",
+    "ISS-other": "General dissatisfaction with the app",
+    "ISS-playback": "Playback, connection, and app startup issues",
+    "ISS-usability": "Ads and interface usability problems"
+  },
+  "evidence_pack": {
+    "ISS-access": [
+      "not letting me into my account",
+      "Will not except my password"
+    ],
+    "ISS-billing": [
+      "can't even pick a certain song without Spotify premium",
+      "made everthing premium",
+      "restrict all the features jst so people would purchase premium",
+      "I CAN ONLY SKIP 6 OF THEM",
+      "useless if u hv not taken premium"
+    ],
+    "ISS-catalog": [
+      "the lyrics don't show",
+      "gospel music isn't much",
+      "many songs are not present here",
+      "recommendations music type before more than now",
+      "in some songs there is no lyrics"
+    ],
+    "ISS-downloads": [
+      "Offline not workjng",
+      "stuck downloading songs in the background"
+    ],
+    "ISS-other": [
+      "Noob app",
+      "Very bad app",
+      "bye Spotify",
+      "You deserve 0 star",
+      "Disappointing"
+    ],
+    "ISS-playback": [
+      "using wifi not able to connect Internet",
+      "do not play the songs",
+      "Keep stopping halfway while playing music",
+      "crash I cant open the app",
+      "stuck on loading/logo screen"
+    ],
+    "ISS-usability": [
+      "plays any song of the Playlist randomly",
+      "ads are so loud",
+      "plays adds instead of songs",
+      "new homescreen update is horrible",
+      "I'm leaving spotfy"
+    ]
+  },
+  "artifact_cache_hit": true
+}

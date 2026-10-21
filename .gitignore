@@ -1,0 +1,13 @@
+local-reference.json
+.env
+.env.*
+!.env.example
+data/*.csv
+self-check.json
+__pycache__/
+.DS_Store
+.venv/
+*.sqlite
+*.sqlite-journal
+runs/
+.pytest_cache/
