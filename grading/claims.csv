@@ -1,0 +1,4 @@
+claim_id,issue_id,metric,value
+C1,ISS-billing,priority_score,185073
+C2,ISS-usability,priority_score,164401
+C3,ISS-other,priority_score,167436

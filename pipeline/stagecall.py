@@ -9,7 +9,7 @@ from .llm import TransportError
 
 
 def stage_call(store, client, ledger, run_id, role, instructions, input_text, schema, cap, review_ids,
-               rates_model, log=print):
+               rates_model, log=print, version="p1"):
     key = hashlib.sha256(json.dumps([role, instructions, input_text, client.model, client.effort, schema],
                                     ensure_ascii=False).encode()).hexdigest()
     hit = store.q("SELECT output FROM cache.artifacts WHERE key=?", (key,))
@@ -20,7 +20,7 @@ def stage_call(store, client, ledger, run_id, role, instructions, input_text, sc
     res = ledger.reserve(call_cost(rates_model, est_in, cap))
     t0, started = time.monotonic(), time.time()
     base = {"run_id": run_id, "role": role, "phase": None, "review_ids": review_ids, "model": client.model,
-            "effort": client.effort, "label_config": f"{client.model}:effort={client.effort}+{role}-p1",
+            "effort": client.effort, "label_config": f"{client.model}:effort={client.effort}+{role}-{version}",
             "attempt": 1, "max_output_tokens": cap, "started_at": started}
     try:
         resp = client.respond(instructions, input_text, schema, role, cap)

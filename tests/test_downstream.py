@@ -82,11 +82,17 @@ def test_memo_numbers_filled_by_code():
     assert "39 [C1]" in text and claims["C1"] == ("ISS-billing", "severity_sum", "39")
 
 
+OK_CLAIM = [{"claim_id": "C1", "issue_id": "ISS-billing", "metric": "priority_score"}]
+
+
 @pytest.mark.parametrize("memo,claims,msg", [
-    ("Billing has 40 complaints.", [], "raw digits"),
-    ("See [review:zzz].", [], "not in evidence pack"),
-    ("Score {C2}.", [], "has no claim"),
+    ("Billing {C1} has 40 complaints.", OK_CLAIM, "raw digits"),
+    ("Billing {C1}. See [review:zzz].", OK_CLAIM, "not in evidence pack"),
+    ("Score {C1} and {C2}.", OK_CLAIM, "has no claim"),
     ("x", [{"claim_id": "C1", "issue_id": "ISS-made-up", "metric": "priority_score"}], "unknown issue"),
+    ("Billing matters most.", [], "declares no claims"),
+    ("Billing leads {C1}.", OK_CLAIM + [{"claim_id": "C2", "issue_id": "ISS-billing", "metric": "mean_severity"}],
+     r"not cited in memo text: \['C2'\]"),
 ])
 def test_memo_rejections(memo, claims, msg):
     with pytest.raises(MemoRejected, match=msg):

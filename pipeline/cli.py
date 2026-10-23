@@ -170,7 +170,9 @@ def main(argv=None):
             write_ranking(ranking, out / "ranking.csv")
             summary["stage_s"]["rank"] = round(time.monotonic() - t, 3)
             log(f"[rank] issues={len(ranking)}")
-        if "memo" in downstream:
+        if "memo" in downstream and not ranking:
+            log("[memo] skipped: no complaint issues to rank")
+        elif "memo" in downstream:
             from .memo import run_memo
             t = time.monotonic()
             run_memo(store, client, ledger, run_id, ranking, names, records, out, "gpt-6-luna", log=log)

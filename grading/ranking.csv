@@ -1,0 +1,9 @@
+rank,issue_id,complaint_count,severity_sum,mean_severity,priority_score
+1,ISS-billing,65425,185073,2.828781,185073
+2,ISS-other,84232,167436,1.987796,167436
+3,ISS-usability,65450,164401,2.511856,164401
+4,ISS-playback,41315,134058,3.244778,134058
+5,ISS-catalog,17278,47433,2.745283,47433
+6,ISS-access,9742,37412,3.840279,37412
+7,ISS-downloads,7050,22480,3.188652,22480
+8,ISS-support,691,1943,2.811867,1943
