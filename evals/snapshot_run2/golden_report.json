@@ -1,0 +1,57 @@
+{
+  "records_file": "runs/main/records.jsonl",
+  "golden_file": "/Users/donte/spotify-capstone/data/golden_50_labeled.csv",
+  "golden_count": 50,
+  "human_labeled_fields": [
+    "topic",
+    "intent",
+    "severity"
+  ],
+  "not_human_labeled_fields": [
+    "sentiment",
+    "evidence_quote",
+    "entities",
+    "needs_review"
+  ],
+  "note": "Don's golden file has only topic/intent/severity filled. sentiment, evidence_quote, entities and needs_review are not human-labeled and are not scored. Missing/quarantined predictions count as disagreements (they stay in the denominator).",
+  "golden_file_problems": [],
+  "golden_rows_with_unexpected_extra_fields": {},
+  "model_completed_for_golden": 46,
+  "model_missing_or_quarantined": 4,
+  "agreement": {
+    "topic": {
+      "agree": 31,
+      "of": 50,
+      "rate": 0.62
+    },
+    "intent": {
+      "agree": 38,
+      "of": 50,
+      "rate": 0.76
+    },
+    "severity": {
+      "agree": 32,
+      "of": 50,
+      "rate": 0.64
+    }
+  },
+  "agreement_on_completed_only": {
+    "topic": 0.6739,
+    "intent": 0.8261,
+    "severity": 0.6957
+  },
+  "severity_mae_on_completed": 0.3478,
+  "severity_model_minus_human": {
+    "-2": 1,
+    "-1": 4,
+    "0": 32,
+    "1": 8,
+    "2": 1
+  },
+  "all_three_agree": 22,
+  "disagreement_count": 28,
+  "evidence_quote_check_all_completed_records": {
+    "ok": 587414
+  },
+  "evidence_quote_failures_first_20": []
+}

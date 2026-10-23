@@ -59,7 +59,33 @@ def main(argv=None):
     r.add_argument("--checkpoint-after", help="write completed_ids here when a resumed enrichment finishes")
     r.add_argument("--dry-run", action="store_true", help="print the preflight and stop")
     r.add_argument("--run-label", default="run")
+    r.add_argument("--out-tokens-per-review", type=int, default=80, help="output-token cap per review in a request")
+    q = sub.add_parser("requeue", help="move quarantined records back to pending (history kept; no API calls)")
+    q.add_argument("--run-dir", required=True)
+    q.add_argument("--reason", action="append", required=True, help="reason prefix; repeatable")
+    q.add_argument("--apply", action="store_true", help="without this flag: dry run, just list counts")
+    g = sub.add_parser("export-grading", help="assemble grading/ from a finished run (no API calls)")
+    g.add_argument("--input", required=True, help="the CSV the run classified")
+    g.add_argument("--run-dir", required=True, help="run --out dir (state.sqlite, ranking.csv, ...)")
+    g.add_argument("--out", default="grading")
     a = ap.parse_args(argv)
+
+    if a.cmd == "requeue":
+        from .requeue import requeue
+        rd = Path(a.run_dir)
+        store = Store(rd / "state.sqlite", rd / "cache.sqlite")
+        ids = requeue(store, a.reason, note="cli requeue " + ",".join(a.reason), dry_run=not a.apply)
+        print(f"[requeue] {'moved to pending' if a.apply else 'DRY RUN, would requeue'}: {len(ids)} records "
+              f"(reasons {a.reason}); history kept in quarantine_history")
+        return 0
+
+    if a.cmd == "export-grading":
+        from .grading import export_grading
+        rd = Path(a.run_dir)
+        if not (rd / "state.sqlite").exists():
+            ap.error(f"no state.sqlite in {rd}")
+        summary = export_grading(Store(rd / "state.sqlite", rd / "cache.sqlite"), a.input, rd, a.out)
+        return 1 if summary["missing_files"] or summary["records"] != summary["expected"] else 0
 
     if a.paid and a.budget_usd is None:
         ap.error("--paid requires --budget-usd")
@@ -68,7 +94,9 @@ def main(argv=None):
     out = Path(a.out); out.mkdir(parents=True, exist_ok=True)
     store = Store(a.state or out / "state.sqlite", a.cache or out / "cache.sqlite")
     # Mock runs are labeled as mock so their records/calls can never pass as paid evidence.
-    cfg = ModelConfig(model=a.model if a.paid else "mock-model", effort=a.effort, max_batch=a.batch_size)
+    # The output cap is not part of label_config: it limits length, not the prompt/schema/labels.
+    cfg = ModelConfig(model=a.model if a.paid else "mock-model", effort=a.effort, max_batch=a.batch_size,
+                      out_tokens_per_review=a.out_tokens_per_review)
     run_id = f"{a.run_label}-{time.strftime('%Y%m%dT%H%M%S')}-{uuid.uuid4().hex[:6]}"
     stages = [s for s in a.stages.split(",") if s]
     log_path = out / "run_log.jsonl"
